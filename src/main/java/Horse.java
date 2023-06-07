@@ -9,6 +9,7 @@ public class Horse {
     public Horse(String name, double speed, double distance) {
         if (isNull(name)) {
             throw new IllegalArgumentException("Name cannot be null.");
+
         } else if (name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be blank.");
         }
@@ -18,7 +19,6 @@ public class Horse {
         if (distance < 0) {
             throw new IllegalArgumentException("Distance cannot be negative.");
         }
-
         this.name = name;
         this.speed = speed;
         this.distance = distance;
@@ -32,6 +32,7 @@ public class Horse {
         return name;
     }
 
+    @SuppressWarnings({"unused"})
     public double getSpeed() {
         return speed;
     }

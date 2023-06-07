@@ -4,6 +4,7 @@ import java.util.List;
 
 import static java.util.Objects.isNull;
 
+@SuppressWarnings("ClassCanBeRecord")
 public class Hippodrome {
 
     private final List<Horse> horses;
@@ -14,7 +15,6 @@ public class Hippodrome {
         } else if (horses.isEmpty()) {
             throw new IllegalArgumentException("Horses cannot be empty.");
         }
-
         this.horses = horses;
     }
 
@@ -25,8 +25,8 @@ public class Hippodrome {
     public void move() {
         horses.forEach(Horse::move);
     }
-
     public Horse getWinner() {
+        //noinspection OptionalGetWithoutIsPresent
         return horses.stream()
                 .max(Comparator.comparing(Horse::getDistance))
                 .get();
